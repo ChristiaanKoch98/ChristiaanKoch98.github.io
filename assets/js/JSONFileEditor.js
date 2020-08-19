@@ -24,6 +24,8 @@ function LoadFile (selectedFile) {
   return output;
 }
 
+alert("Hello  my dude.")
+
 //Drag and drop area stuff
 //#region 
 let dropArea = document.getElementById('drop-area')
