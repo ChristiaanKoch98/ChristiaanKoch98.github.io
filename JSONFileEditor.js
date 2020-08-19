@@ -27,6 +27,7 @@ function LoadFile (selectedFile) {
 
 
 //Drag and drop area stuff
+//#region 
 let dropArea = document.getElementById('drop-area')
 
 ;['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
@@ -64,28 +65,22 @@ function handleDrop(e) {
 }
 
 function handleFiles(files) {
-  ([...files]).forEach(uploadFile)
+  files = [...files]
+  initializeProgress(files.length) // <- Add this line
+  files.forEach(uploadFile)
+  files.forEach(previewFile)
 }
 
-function uploadFile(file) {
-  let url = 'myWebsiteURL'
-  let formData = new FormData()
-
-  formData.append('file', file)
-
-  fetch(url, {
-    method: 'POST',
-    body: formData
-  })
-  .then(() => { /* Done. Inform the user */ })
-  .catch(() => { /* Error. Inform the user */ })
-}
-
-function uploadFile(file) {
-  var url = myWebsiteURL;
+function uploadFile(file, i) { // <- Add `i` parameter
+  var url = 'YOUR URL HERE'
   var xhr = new XMLHttpRequest()
   var formData = new FormData()
   xhr.open('POST', url, true)
+
+  // Add following event listener
+  xhr.upload.addEventListener("progress", function(e) {
+    updateProgress(i, (e.loaded * 100.0 / e.total) || 100)
+  })
 
   xhr.addEventListener('readystatechange', function(e) {
     if (xhr.readyState == 4 && xhr.status == 200) {
@@ -99,3 +94,39 @@ function uploadFile(file) {
   formData.append('file', file)
   xhr.send(formData)
 }
+
+//Preview
+function previewFile(file) {
+  let reader = new FileReader()
+  reader.readAsDataURL(file)
+  reader.onloadend = function() {
+    let img = document.createElement('img')
+    img.src = reader.result
+    document.getElementById('gallery').appendChild(img)
+  }
+}
+
+//Progress bar
+let filesDone = 0
+let filesToDo = 0
+let uploadProgress = []
+let progressBar = document.getElementById('progress-bar')
+
+function initializeProgress(numFiles) {
+  progressBar.value = 0
+  uploadProgress = []
+
+  for(let i = numFiles; i > 0; i--) {
+    uploadProgress.push(0)
+  }
+}
+
+function updateProgress(fileNumber, percent) {
+  uploadProgress[fileNumber] = percent
+  let total = uploadProgress.reduce((tot, curr) => tot + curr, 0) / uploadProgress.length
+  progressBar.value = total
+}
+
+
+
+//#endregion 
