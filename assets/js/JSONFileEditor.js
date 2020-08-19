@@ -24,7 +24,7 @@ function LoadFile (selectedFile) {
   return output;
 }
 
-alert("Hello  my dude.")
+alert("Hello my dude.")
 
 //Drag and drop area stuff
 //#region 
