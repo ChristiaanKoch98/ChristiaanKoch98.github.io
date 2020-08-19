@@ -24,8 +24,6 @@ function LoadFile (selectedFile) {
   return output;
 }
 
-
-
 //Drag and drop area stuff
 //#region 
 let dropArea = document.getElementById('drop-area')
@@ -72,7 +70,7 @@ function handleFiles(files) {
 }
 
 function uploadFile(file, i) { // <- Add `i` parameter
-  var url = 'YOUR URL HERE'
+  var url = myWebsiteURL
   var xhr = new XMLHttpRequest()
   var formData = new FormData()
   xhr.open('POST', url, true)
@@ -107,8 +105,6 @@ function previewFile(file) {
 }
 
 //Progress bar
-let filesDone = 0
-let filesToDo = 0
 let uploadProgress = []
 let progressBar = document.getElementById('progress-bar')
 
@@ -126,7 +122,5 @@ function updateProgress(fileNumber, percent) {
   let total = uploadProgress.reduce((tot, curr) => tot + curr, 0) / uploadProgress.length
   progressBar.value = total
 }
-
-
 
 //#endregion 
