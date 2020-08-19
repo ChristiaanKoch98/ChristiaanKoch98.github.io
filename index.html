@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="form-row">
-                <div class="col"><button id="btnLoad" onclick="document.write(functionName())" class="btn btn-primary" type="button" style="padding: 10px 20px;margin: 20px;">Button</button></div>
+                <div class="col"><button id="btnLoad" onclick="" class="btn btn-primary" type="button" style="padding: 10px 20px;margin: 20px;">Button</button></div>
             </div>
             <div class="form-row" style="padding: 20px;">
                 <div class="col">
@@ -33,6 +33,15 @@
             </div>
         </form>
     </div>
+
+    <div id="drop-area">
+        <form class="my-form">
+          <p>Drag and drop a JSON file onto the dashed region</p>
+          <input type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
+          <label class="button" for="fileElem">Select some files</label>
+        </form>
+      </div>
+      
     <main class="page landing-page"></main>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
