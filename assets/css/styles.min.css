@@ -3,7 +3,7 @@ body,html{height:100%;width:100%}.sp-loading{text-align:center;max-width:270px;p
 #drop-area {
     border: 2px dashed midnightblue;
     border-radius: 20px;
-    width: 2000px;
+    width: 480px;
     font-family: sans-serif;
     margin: 100px auto;
     padding: 20px;
