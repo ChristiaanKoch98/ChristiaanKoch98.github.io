@@ -20,7 +20,7 @@
     <div id="drop-area">
         <form class="my-form">
           <p>Drag and drop a JSON file onto the dashed region</p>
-          <input type="file" id="fileElem" multiple accept=".json" onchange="handleFiles(this.files)">
+          <input type="file" id="fileElem" multiple accept=".json" onchange="javascript:handleFiles(this.files)">
           <label class="button" for="fileElem">Select a file</label>
           <progress id="progress-bar" max=100 value=0></progress>
         </form>
