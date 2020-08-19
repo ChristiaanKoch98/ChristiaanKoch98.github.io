@@ -58,7 +58,6 @@ dropArea.addEventListener('drop', handleDrop, false)
 function handleDrop(e) {
   let dt = e.dataTransfer
   let files = dt.files
-
   handleFiles(files)
 }
 
@@ -66,7 +65,6 @@ function handleFiles(files) {
   files = [...files]
   initializeProgress(files.length) // <- Add this line
   files.forEach(uploadFile)
-  files.forEach(previewFile)
 }
 
 function uploadFile(file, i) { // <- Add `i` parameter
@@ -91,17 +89,6 @@ function uploadFile(file, i) { // <- Add `i` parameter
 
   formData.append('file', file)
   xhr.send(formData)
-}
-
-//Preview
-function previewFile(file) {
-  let reader = new FileReader()
-  reader.readAsDataURL(file)
-  reader.onloadend = function() {
-    let img = document.createElement('img')
-    img.src = reader.result
-    document.getElementById('gallery').appendChild(img)
-  }
 }
 
 //Progress bar
