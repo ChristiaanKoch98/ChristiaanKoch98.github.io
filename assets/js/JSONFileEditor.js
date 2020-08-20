@@ -25,6 +25,8 @@ function LoadFile (selectedFile) {
   //return output;
 }
 
+alert("Hello fwiends :3");
+
 //Drag and drop area stuff
 //#region 
 let dropArea = document.getElementById('drop-area')
@@ -62,9 +64,7 @@ function handleDrop(e) {
   handleFiles(files)
 }
 
-//function handleFiles(files) {
 function handleFiles(files) {
-  files = document.getElementById("output_paragraph").files
   files = [...files]
   initializeProgress(files.length) // <- Add this line
   files.forEach(uploadFile)
