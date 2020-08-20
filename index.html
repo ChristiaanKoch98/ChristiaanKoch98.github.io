@@ -17,14 +17,20 @@
         <div class="container"><a class="navbar-brand logo" href="#"><strong>JSON File Editor</strong></a></div>
     </nav>
     
+    var 
+
     <div id="drop-area">
         <form class="my-form">
           <p>Drag and drop a JSON file onto the dashed region</p>
-          <input type="file" id="fileElem" multiple accept=".json" onchange="javascript:bundle.handleFiles(this.files)">
+          <input type="file" id="fileElem" multiple accept=".json" onchange="handleFiles(this.files)">
           <label class="button" for="fileElem">Select a file</label>
           <progress id="progress-bar" max=100 value=0></progress>
         </form>
         <div id="gallery"></div>
+    </div>
+
+    <div>
+        <p id="output_paragraph"></p>
     </div>
       
     <main class="page landing-page"></main>

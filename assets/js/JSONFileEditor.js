@@ -21,7 +21,8 @@ function LoadFile (selectedFile) {
       output += `${objectType} : ${objectValue} (${objectType})\n`
   }
 
-  return output;
+  document.getElementById("output_paragraph").innerHTML = output;
+  //return output;
 }
 
 //Drag and drop area stuff
