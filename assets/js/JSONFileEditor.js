@@ -62,7 +62,9 @@ function handleDrop(e) {
   handleFiles(files)
 }
 
+//function handleFiles(files) {
 function handleFiles(files) {
+  files = document.getElementById("output_paragraph").files
   files = [...files]
   initializeProgress(files.length) // <- Add this line
   files.forEach(uploadFile)
